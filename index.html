@@ -72,7 +72,7 @@
       gap: 20px;
       justify-content: center;
     }
-    .button-section a button {
+    .button-section button {
       padding: 16px;
       border: none;
       border-radius: 12px;
@@ -148,6 +148,24 @@
       border-top: 1px solid #333;
       background-color: #000;
     }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    form input {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 14px;
+    }
+    #driverList {
+      background: #1f1f1f;
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
     @media (max-width: 768px) {
       .container {
         grid-template-columns: 1fr;
@@ -180,11 +198,29 @@
       <p>DriverSathi helps vehicle owners find reliable drivers and helps drivers find return loads after dropping goods. India's first all-in-one logistics network to simplify transport via direct WhatsApp connections.</p>
     </section>
     <section class="button-section">
-      <a href="#"><button class="btn-yellow"><i class="fas fa-user-check"></i> Find Driver</button></a>
-      <a href="#"><button class="btn-white"><i class="fas fa-box"></i> Find Load</button></a>
+      <button class="btn-yellow" onclick="showDrivers()"><i class="fas fa-user-check"></i> Find Driver</button>
+      <button class="btn-white"><i class="fas fa-box"></i> Find Load</button>
       <a href="https://wa.me/919999999999" target="_blank"><button class="btn-dark-yellow"><i class="fab fa-whatsapp"></i> Book on WhatsApp</button></a>
+      <button class="btn-yellow" onclick="document.getElementById('driverForm').style.display='block'">I am Driver</button>
+      <button class="btn-white" onclick="alert('Coming soon: Vehicle Owner registration.')">I am Vehicle Owner</button>
     </section>
   </main>
+
+  <div class="container" id="driverForm" style="display:none;">
+    <h3>Driver Registration</h3>
+    <form onsubmit="registerDriver(event)">
+      <input type="text" id="name" placeholder="Name" required />
+      <input type="number" id="age" placeholder="Age" required />
+      <input type="text" id="experience" placeholder="Experience (e.g. 5 years)" required />
+      <input type="tel" id="number" placeholder="Contact Number" required />
+      <button class="btn-yellow" type="submit">Submit</button>
+    </form>
+  </div>
+
+  <div class="container" id="driverList" style="display:none;">
+    <h3>Registered Drivers</h3>
+    <ul id="driverDetails"></ul>
+  </div>
 
   <section class="services" id="services">
     <h3>Our Services</h3>
@@ -210,5 +246,37 @@
   <footer>
     © All Rights Reserved — DriverSathi 2025
   </footer>
+
+  <script>
+    function registerDriver(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const age = document.getElementById('age').value;
+      const experience = document.getElementById('experience').value;
+      const number = document.getElementById('number').value;
+
+      const driver = { name, age, experience, number };
+      let drivers = JSON.parse(localStorage.getItem('drivers')) || [];
+      drivers.push(driver);
+      localStorage.setItem('drivers', JSON.stringify(drivers));
+
+      alert('Driver Registered Successfully!');
+      document.getElementById('driverForm').style.display = 'none';
+    }
+
+    function showDrivers() {
+      const drivers = JSON.parse(localStorage.getItem('drivers')) || [];
+      const list = document.getElementById('driverDetails');
+      list.innerHTML = '';
+      if (drivers.length === 0) {
+        list.innerHTML = '<li>No drivers registered yet.</li>';
+      } else {
+        drivers.forEach(driver => {
+          list.innerHTML += `<li><strong>${driver.name}</strong>, Age: ${driver.age}, Experience: ${driver.experience}, Contact: ${driver.number}</li>`;
+        });
+      }
+      document.getElementById('driverList').style.display = 'block';
+    }
+  </script>
 </body>
 </html>
