@@ -1,0 +1,26 @@
+{
+  "name": "driversathi",
+  "version": "1.0.0",
+  "description": "DriverSathi connects drivers with vehicle owners.",
+  "main": "index.js",
+  "homepage": "https://zapcart.github.io/Driversathi",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.11.0",
+    "react-scripts": "5.0.1",
+    "framer-motion": "^10.16.1",
+    "gh-pages": "^6.1.0"
+  },
+  "keywords": [],
+  "author": "Zapcart",
+  "license": "ISC"
+}
