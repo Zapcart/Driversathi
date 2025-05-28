@@ -1,0 +1,62 @@
+import React from "react";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { FaWhatsapp } from "react-icons/fa";
+
+export default function HomePage() {
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white px-6 py-10">
+      {/* Header */}
+      <header className="flex justify-between items-center border-b border-gray-800 pb-6">
+        <h1 className="text-4xl font-bold text-yellow-400">DriverSathi</h1>
+        <nav className="space-x-8 text-sm text-gray-400">
+          <a href="#" className="text-yellow-400 font-semibold">Home</a>
+          <a href="#" className="hover:text-yellow-300 transition-colors">About</a>
+          <a href="#" className="hover:text-yellow-300 transition-colors">Services</a>
+          <a href="#" className="hover:text-yellow-300 transition-colors">Contact</a>
+        </nav>
+      </header>
+
+      {/* Main Section */}
+      <div className="mt-20 flex flex-col md:flex-row justify-between items-center max-w-6xl mx-auto gap-10">
+        {/* Left: Tagline + description */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="text-left"
+        >
+          <h2 className="text-5xl font-bold text-yellow-400 mb-6">
+            Your Trusted Logistics Partner
+          </h2>
+          <p className="text-gray-300 text-lg leading-relaxed mb-6 max-w-md">
+            DriverSathi connects drivers with vehicle owners across India. We help drivers find vehicles, assist owners in locating reliable drivers, and ensure drivers returning from delivery have access to return loads—making logistics smarter and more efficient.
+          </p>
+        </motion.div>
+
+        {/* Right: Buttons */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+          className="flex flex-col gap-4 w-full max-w-xs"
+        >
+          <Button className="text-lg px-6 py-4 rounded-2xl bg-yellow-500 text-black hover:bg-yellow-600 shadow-md transform hover:scale-105 transition-transform duration-300">
+            Find Driver
+          </Button>
+          <Button className="text-lg px-6 py-4 rounded-2xl bg-white text-black hover:bg-gray-100 shadow-md transform hover:scale-105 transition-transform duration-300">
+            Find Load
+          </Button>
+          <Button className="text-lg px-6 py-4 rounded-2xl bg-yellow-700 text-white hover:bg-yellow-800 shadow-md flex items-center justify-center transform hover:scale-105 transition-transform duration-300">
+            <FaWhatsapp className="mr-2 text-xl" /> Book on WhatsApp
+          </Button>
+        </motion.div>
+      </div>
+
+      {/* Footer */}
+      <footer className="mt-24 text-sm text-gray-500 border-t border-gray-800 pt-6 text-center">
+        © 2025 <span className="text-yellow-400 font-semibold">DriverSathi.in</span> — All Rights Reserved
+      </footer>
+    </div>
+  );
+}
