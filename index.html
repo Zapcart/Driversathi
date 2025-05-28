@@ -154,7 +154,7 @@
       gap: 10px;
       margin-top: 20px;
     }
-    form input {
+    form input, form select {
       padding: 10px;
       border-radius: 8px;
       border: none;
@@ -165,6 +165,13 @@
       padding: 20px;
       border-radius: 12px;
       margin-top: 20px;
+    }
+    #whatsappForm {
+      background: #1f1f1f;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 40px auto;
+      max-width: 500px;
     }
     @media (max-width: 768px) {
       .container {
@@ -200,7 +207,7 @@
     <section class="button-section">
       <button class="btn-yellow" onclick="showDrivers()"><i class="fas fa-user-check"></i> Find Driver</button>
       <button class="btn-white"><i class="fas fa-box"></i> Find Load</button>
-      <a href="https://wa.me/919999999999" target="_blank"><button class="btn-dark-yellow"><i class="fab fa-whatsapp"></i> Book on WhatsApp</button></a>
+      <button class="btn-dark-yellow" onclick="document.getElementById('whatsappForm').style.display='block'"><i class="fab fa-whatsapp"></i> Book on WhatsApp</button>
       <button class="btn-yellow" onclick="document.getElementById('driverForm').style.display='block'">I am Driver</button>
       <button class="btn-white" onclick="alert('Coming soon: Vehicle Owner registration.')">I am Vehicle Owner</button>
     </section>
@@ -220,6 +227,21 @@
   <div class="container" id="driverList" style="display:none;">
     <h3>Registered Drivers</h3>
     <ul id="driverDetails"></ul>
+  </div>
+
+  <div id="whatsappForm" style="display:none;">
+    <h3>Book via WhatsApp</h3>
+    <form onsubmit="sendToWhatsApp(event)">
+      <select id="role" required>
+        <option value="">You are...</option>
+        <option value="Vehicle Owner">Vehicle Owner</option>
+        <option value="Customer">Customer</option>
+      </select>
+      <input type="text" id="from" placeholder="From Location" required />
+      <input type="text" id="to" placeholder="To Location" required />
+      <input type="text" id="details" placeholder="Box count / Vehicle size" required />
+      <button class="btn-yellow" type="submit">Send on WhatsApp</button>
+    </form>
   </div>
 
   <section class="services" id="services">
@@ -276,6 +298,17 @@
         });
       }
       document.getElementById('driverList').style.display = 'block';
+    }
+
+    function sendToWhatsApp(e) {
+      e.preventDefault();
+      const role = document.getElementById('role').value;
+      const from = document.getElementById('from').value;
+      const to = document.getElementById('to').value;
+      const details = document.getElementById('details').value;
+      const message = `Hi, I'm a ${role}. From: ${from}, To: ${to}, Details: ${details}`;
+      const url = `https://wa.me/919999999999?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
     }
   </script>
 </body>
