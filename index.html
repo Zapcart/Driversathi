@@ -1,160 +1,214 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DriverSathi</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #000;
-      color: white;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      border-bottom: 1px solid #333;
-      background-color: #111;
-    }
-    header h1 {
-      color: #facc15;
-      font-size: 32px;
-      font-weight: 800;
-      margin: 0;
-    }
-    nav a {
-      margin-left: 20px;
-      color: #ccc;
-      text-decoration: none;
-      font-size: 14px;
-      padding: 8px 12px;
-      border-radius: 6px;
-      transition: background 0.3s, color 0.3s;
-    }
-    nav a:hover {
-      background: #facc15;
-      color: #000;
-    }
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 60px 40px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-    }
-    .text-section h2 {
-      font-size: 36px;
-      color: #facc15;
-      margin-bottom: 20px;
-    }
-    .text-section p {
-      font-size: 18px;
-      color: #ccc;
-      line-height: 1.6;
-    }
-    .button-section {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      justify-content: center;
-    }
-    .button-section button, .button-section a.button {
-      padding: 16px;
-      border: none;
-      border-radius: 12px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      transition: background 0.3s;
-      text-align: center;
-      display: inline-block;
-      color: inherit;
-      text-decoration: none;
-    }
-    .btn-yellow {
-      background-color: #facc15;
-      color: black;
-    }
-    .btn-yellow:hover {
-      background-color: #eab308;
-    }
-    .btn-white {
-      background-color: white;
-      color: black;
-    }
-    .btn-white:hover {
-      background-color: #e5e5e5;
-    }
-    .btn-dark-yellow {
-      background-color: #a16207;
-      color: white;
-    }
-    .btn-dark-yellow:hover {
-      background-color: #854d0e;
-    }
-    footer {
-      text-align: center;
-      color: #555;
-      font-size: 14px;
-      padding: 30px 20px;
-      border-top: 1px solid #333;
-      background-color: #111;
-    }
-    @media (max-width: 768px) {
-      .container {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        margin-top: 20px;
-      }
-      .button-section {
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-      .button-section button, .button-section a.button {
-        flex: 1 1 150px;
-        max-width: 200px;
-      }
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DriverSathi</title>
+  <meta name="description" content="DriverSathi helps logistics by connecting drivers and loads via WhatsApp. India's first integrated driver-load matching platform.">
+  <meta name="keywords" content="logistics, driver, load, WhatsApp booking, transport India">
+  <link rel="icon" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #111;
+      color: white;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid #333;
+      background-color: #000;
+    }
+    header h1 {
+      color: #facc15;
+      font-size: 32px;
+      font-weight: 800;
+      margin: 0;
+      display: flex;
+      align-items: center;
+    }
+    header h1 i {
+      margin-right: 10px;
+    }
+    nav a {
+      margin-left: 20px;
+      color: #ccc;
+      text-decoration: none;
+      font-size: 14px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background 0.3s, color 0.3s;
+    }
+    nav a:hover {
+      background: #facc15;
+      color: #000;
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 60px 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .text-section h2 {
+      font-size: 36px;
+      color: #facc15;
+      margin-bottom: 20px;
+    }
+    .text-section p {
+      font-size: 18px;
+      color: #ccc;
+      line-height: 1.8;
+    }
+    .button-section {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      justify-content: center;
+    }
+    .button-section a button {
+      padding: 16px;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .btn-yellow {
+      background-color: #facc15;
+      color: black;
+    }
+    .btn-yellow:hover {
+      background-color: #eab308;
+      transform: scale(1.05);
+    }
+    .btn-white {
+      background-color: #f9f9f9;
+      color: black;
+    }
+    .btn-white:hover {
+      background-color: #e5e5e5;
+      transform: scale(1.05);
+    }
+    .btn-dark-yellow {
+      background-color: #a16207;
+      color: white;
+    }
+    .btn-dark-yellow:hover {
+      background-color: #854d0e;
+      transform: scale(1.05);
+    }
+    .services {
+      padding: 60px 40px;
+      background: #1a1a1a;
+      text-align: center;
+    }
+    .services h3 {
+      font-size: 28px;
+      color: #facc15;
+      margin-bottom: 30px;
+    }
+    .services .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    .card {
+      background: #222;
+      border-radius: 12px;
+      padding: 30px;
+      width: 280px;
+      color: #ccc;
+      text-align: left;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .card i {
+      font-size: 32px;
+      color: #facc15;
+      margin-bottom: 10px;
+    }
+    footer {
+      text-align: center;
+      color: #555;
+      font-size: 14px;
+      padding: 30px 20px;
+      border-top: 1px solid #333;
+      background-color: #000;
+    }
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-top: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <h1>DriverSathi</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">Contact</a>
-    </nav>
-  </header>
+  <header>
+    <h1><i class="fas fa-truck-moving"></i>DriverSathi</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-  <main class="container">
-    <section class="text-section">
-      <h2>Your trusted logistics partner</h2>
-      <p>DriverSathi helps vehicle owners find reliable drivers and helps drivers find return loads after dropping goods. India's first all-in-one logistics network to simplify transport via direct WhatsApp connections.</p>
-    </section>
-    <section class="button-section">
-      <button class="btn-yellow">Find Driver</button>
-      <button class="btn-white">Find Load</button>
-      <a href="https://wa.me/yourwhatsapplink" target="_blank" class="btn-dark-yellow button">Book on WhatsApp</a>
-    </section>
-  </main>
+  <main class="container">
+    <section class="text-section">
+      <h2>Your trusted logistics partner</h2>
+      <p>DriverSathi helps vehicle owners find reliable drivers and helps drivers find return loads after dropping goods. India's first all-in-one logistics network to simplify transport via direct WhatsApp connections.</p>
+    </section>
+    <section class="button-section">
+      <a href="#"><button class="btn-yellow"><i class="fas fa-user-check"></i> Find Driver</button></a>
+      <a href="#"><button class="btn-white"><i class="fas fa-box"></i> Find Load</button></a>
+      <a href="https://wa.me/919999999999" target="_blank"><button class="btn-dark-yellow"><i class="fab fa-whatsapp"></i> Book on WhatsApp</button></a>
+    </section>
+  </main>
 
-  <footer>
-    © All Rights Reserved — DriverSathi 2025
-  </footer>
+  <section class="services" id="services">
+    <h3>Our Services</h3>
+    <div class="cards">
+      <div class="card">
+        <i class="fas fa-users"></i>
+        <h4>Driver Matching</h4>
+        <p>Connect instantly with verified and reliable drivers across India.</p>
+      </div>
+      <div class="card">
+        <i class="fas fa-truck"></i>
+        <h4>Load Finder</h4>
+        <p>Drivers can find return loads and avoid empty return trips, boosting income.</p>
+      </div>
+      <div class="card">
+        <i class="fab fa-whatsapp"></i>
+        <h4>WhatsApp Booking</h4>
+        <p>Fast, direct communication with logistics partners through WhatsApp.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © All Rights Reserved — DriverSathi 2025
+  </footer>
 </body>
 </html>
