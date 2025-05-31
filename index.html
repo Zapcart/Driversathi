@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DriverSathi - India’s Logistics Partner</title>
-  <meta name="description" content="DriverSathi connects drivers, vehicle owners, and customers across India via WhatsApp and a professional logistics platform.">
+  <title>DriverSathi — Logistics Simplified</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -16,158 +15,225 @@
     body {
       font-family: 'Inter', sans-serif;
       background-color: #f9fafb;
-      color: #111;
+      color: #111827;
+      overflow-x: hidden;
     }
     header {
-      background: #111827;
-      color: #facc15;
+      background: linear-gradient(90deg, #dc2626, #b91c1c);
+      color: white;
       padding: 20px 40px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     }
     header h1 {
       font-size: 28px;
-      display: flex;
-      align-items: center;
-    }
-    header h1 i {
-      margin-right: 10px;
+      font-weight: 800;
     }
     nav a {
-      color: #facc15;
+      color: white;
       margin-left: 20px;
       text-decoration: none;
       font-weight: 500;
+      transition: color 0.3s ease;
     }
     nav a:hover {
-      text-decoration: underline;
+      color: #fde68a;
     }
     .hero {
-      padding: 60px 20px;
-      background: linear-gradient(to right, #facc15, #fde68a);
+      background: url('https://images.unsplash.com/photo-1570129477492-45c003edd2be') no-repeat center center/cover;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      padding: 40px;
+      color: white;
+      position: relative;
     }
-    .hero h2 {
-      font-size: 40px;
-      color: #1f2937;
+    .hero::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+    }
+    .hero-content {
+      position: relative;
+      max-width: 800px;
+      z-index: 10;
+      animation: fadeInUp 1s ease forwards;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-content h2 {
+      font-size: 48px;
       margin-bottom: 20px;
+      font-weight: 800;
     }
-    .hero p {
+    .hero-content p {
       font-size: 18px;
-      color: #374151;
-      max-width: 700px;
-      margin: 0 auto;
+      margin-bottom: 30px;
+    }
+    .btn-primary {
+      background: #facc15;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .btn-primary:hover {
+      transform: scale(1.05);
     }
     .section {
       padding: 60px 20px;
-      max-width: 1000px;
+      max-width: 1200px;
       margin: auto;
     }
     .section h3 {
-      font-size: 28px;
+      font-size: 32px;
       margin-bottom: 20px;
-      color: #111827;
+      color: #b91c1c;
     }
-    form input, form select {
-      padding: 12px;
-      border: 1px solid #d1d5db;
-      border-radius: 8px;
-      margin-bottom: 15px;
+    .form-card {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+    }
+    .form-card h4 {
+      margin-bottom: 20px;
+    }
+    .form-card input, .form-card select {
       width: 100%;
-    }
-    form button {
       padding: 12px;
-      background-color: #facc15;
-      color: #111827;
-      border: none;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
       border-radius: 8px;
-      cursor: pointer;
+      font-size: 15px;
+    }
+    .form-card button {
+      background: #b91c1c;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 8px;
+      font-size: 16px;
       font-weight: 600;
     }
-    form button:hover {
-      background-color: #eab308;
-    }
-    .ads {
-      background-color: #fef3c7;
-      padding: 30px 20px;
-      text-align: center;
-    }
-    .ads h4 {
-      font-size: 22px;
-      margin-bottom: 10px;
-    }
-    footer {
-      background: #111827;
-      color: #f9fafb;
+    .ads-section {
+      background: #fff7ed;
       padding: 40px 20px;
       text-align: center;
     }
-    footer p, footer a {
-      font-size: 14px;
-      color: #d1d5db;
+    .ads-section h4 {
+      font-size: 24px;
+      margin-bottom: 20px;
     }
-    footer a {
-      text-decoration: none;
-      margin: 0 10px;
+    .ads-placeholder {
+      height: 120px;
+      background: #fcd34d;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      color: #78350f;
+    }
+    .about {
+      text-align: center;
+    }
+    footer {
+      background: #111827;
+      color: #9ca3af;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      font-size: 22px;
+      padding: 15px;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 999;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1><i class="fas fa-truck"></i>DriverSathi</h1>
+    <h1>DriverSathi</h1>
     <nav>
       <a href="#">Home</a>
-      <a href="#about">About</a>
       <a href="#register">Register</a>
       <a href="#ads">Ads</a>
-      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
     </nav>
   </header>
 
   <section class="hero">
-    <h2>India’s Most Trusted Driver-Logistics Network</h2>
-    <p>DriverSathi helps you find reliable drivers, return loads, and book transport services via WhatsApp – seamlessly and efficiently.</p>
+    <div class="hero-content">
+      <h2>Smart Logistics Made Easy</h2>
+      <p>Connecting Drivers, Vehicle Owners & Load Providers across India with just one click.</p>
+      <button class="btn-primary" onclick="document.getElementById('register').scrollIntoView({ behavior: 'smooth' })">Register Now</button>
+    </div>
   </section>
 
-  <section id="register" class="section">
-    <h3>Register with DriverSathi</h3>
-    <form>
-      <select required>
-        <option value="">Select Role</option>
-        <option value="Driver">Driver</option>
-        <option value="Vehicle Owner">Vehicle Owner</option>
-        <option value="Seller">Seller</option>
-      </select>
-      <input type="text" placeholder="Full Name" required />
-      <input type="tel" placeholder="Mobile Number" required />
-      <input type="text" placeholder="Location" required />
-      <input type="text" placeholder="Vehicle/Experience (if any)" />
-      <button type="submit">Register Now</button>
-    </form>
+  <section class="section" id="register">
+    <h3>Quick Registrations</h3>
+    <div class="form-card">
+      <h4>Driver Registration</h4>
+      <input type="text" placeholder="Full Name">
+      <input type="text" placeholder="Phone Number">
+      <input type="text" placeholder="License Number">
+      <button>Register as Driver</button>
+    </div>
+    <div class="form-card">
+      <h4>Vehicle Owner Registration</h4>
+      <input type="text" placeholder="Full Name">
+      <input type="text" placeholder="Company Name">
+      <input type="text" placeholder="Contact Number">
+      <button>Register as Owner</button>
+    </div>
+    <div class="form-card">
+      <h4>Seller Registration</h4>
+      <input type="text" placeholder="Business Name">
+      <input type="text" placeholder="Contact Number">
+      <input type="text" placeholder="Product Type">
+      <button>Register as Seller</button>
+    </div>
   </section>
 
-  <section class="ads" id="ads">
-    <h4>Sponsored Ads</h4>
-    <p>Your ad could be here. Contact us to advertise your business with DriverSathi.</p>
+  <section class="ads-section" id="ads">
+    <h4>Our Advertisement Section</h4>
+    <div class="ads-placeholder">Your Ad Here (Coming Soon)</div>
   </section>
 
-  <section class="section" id="about">
+  <section class="section about" id="about">
     <h3>About DriverSathi</h3>
-    <p>We simplify logistics in India by bridging the gap between drivers, vehicle owners, and businesses. Our platform is built to reduce empty return trips and increase earning potential for drivers, while offering fast, WhatsApp-based load and driver discovery for logistics operations.</p>
-  </section>
-
-  <section class="section" id="contact">
-    <h3>Contact & Support</h3>
-    <p>Need help? Contact our team via WhatsApp below.</p>
-    <a href="https://wa.me/919960824574" target="_blank">
-      <button>Chat on WhatsApp</button>
-    </a>
+    <p>DriverSathi is India’s first integrated driver-load platform built to ease the logistics journey for all parties involved — from the driver, vehicle owner to the seller. Connect. Communicate. Transport.</p>
   </section>
 
   <footer>
-    <p>© DriverSathi.site 2025. All Rights Reserved.</p>
-    <p><a href="#register">Driver Registration</a> | <a href="#register">Vehicle Owner Registration</a> | <a href="#register">Seller Join</a></p>
+    <p>Need help? <a href="#" style="color: #facc15; text-decoration: underline;">Contact Support</a></p>
+    <p>© 2025 DriverSathi.site — All Rights Reserved</p>
   </footer>
+
+  <a class="whatsapp-btn" href="https://wa.me/919960824574" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 </body>
 </html>
