@@ -1,315 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DriverSathi</title>
-  <meta name="description" content="DriverSathi helps logistics by connecting drivers and loads via WhatsApp. India's first integrated driver-load matching platform.">
-  <meta name="keywords" content="logistics, driver, load, WhatsApp booking, transport India">
-  <link rel="icon" href="favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #111;
-      color: white;
-    }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 40px;
-      border-bottom: 1px solid #333;
-      background-color: #000;
-    }
-    header h1 {
-      color: #facc15;
-      font-size: 32px;
-      font-weight: 800;
-      margin: 0;
-      display: flex;
-      align-items: center;
-    }
-    header h1 i {
-      margin-right: 10px;
-    }
-    nav a {
-      margin-left: 20px;
-      color: #ccc;
-      text-decoration: none;
-      font-size: 14px;
-      padding: 8px 12px;
-      border-radius: 6px;
-      transition: background 0.3s, color 0.3s;
-    }
-    nav a:hover {
-      background: #facc15;
-      color: #000;
-    }
-    .container {
-      max-width: 1200px;
-      margin: auto;
-      padding: 60px 40px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-    }
-    .text-section h2 {
-      font-size: 36px;
-      color: #facc15;
-      margin-bottom: 20px;
-    }
-    .text-section p {
-      font-size: 18px;
-      color: #ccc;
-      line-height: 1.8;
-    }
-    .button-section {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      justify-content: center;
-    }
-    .button-section button {
-      padding: 16px;
-      border: none;
-      border-radius: 12px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-    }
-    .btn-yellow {
-      background-color: #facc15;
-      color: black;
-    }
-    .btn-yellow:hover {
-      background-color: #eab308;
-      transform: scale(1.05);
-    }
-    .btn-white {
-      background-color: #f9f9f9;
-      color: black;
-    }
-    .btn-white:hover {
-      background-color: #e5e5e5;
-      transform: scale(1.05);
-    }
-    .btn-dark-yellow {
-      background-color: #a16207;
-      color: white;
-    }
-    .btn-dark-yellow:hover {
-      background-color: #854d0e;
-      transform: scale(1.05);
-    }
-    .services {
-      padding: 60px 40px;
-      background: #1a1a1a;
-      text-align: center;
-    }
-    .services h3 {
-      font-size: 28px;
-      color: #facc15;
-      margin-bottom: 30px;
-    }
-    .services .cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-    }
-    .card {
-      background: #222;
-      border-radius: 12px;
-      padding: 30px;
-      width: 280px;
-      color: #ccc;
-      text-align: left;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-    .card i {
-      font-size: 32px;
-      color: #facc15;
-      margin-bottom: 10px;
-    }
-    footer {
-      text-align: center;
-      color: #555;
-      font-size: 14px;
-      padding: 30px 20px;
-      border-top: 1px solid #333;
-      background-color: #000;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 20px;
-    }
-    form input, form select {
-      padding: 10px;
-      border-radius: 8px;
-      border: none;
-      font-size: 14px;
-    }
-    #driverList {
-      background: #1f1f1f;
-      padding: 20px;
-      border-radius: 12px;
-      margin-top: 20px;
-    }
-    #whatsappForm {
-      background: #1f1f1f;
-      padding: 20px;
-      border-radius: 12px;
-      margin: 40px auto;
-      max-width: 500px;
-    }
-    @media (max-width: 768px) {
-      .container {
-        grid-template-columns: 1fr;
-        text-align: center;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DriverSathi - India's Trusted Transport Partner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
       }
-      nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-        margin-top: 20px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1><i class="fas fa-truck-moving"></i>DriverSathi</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">About</a>
-      <a href="#services">Services</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+        <h1 class="text-2xl font-bold text-yellow-500 flex items-center">
+          <i class="fas fa-truck-moving mr-2"></i> DriverSathi
+        </h1>
+        <nav class="space-x-4 text-sm">
+          <a href="#" class="text-gray-700 hover:text-yellow-500">Home</a>
+          <a href="#services" class="text-gray-700 hover:text-yellow-500">Services</a>
+          <a href="#register" class="text-gray-700 hover:text-yellow-500">Register</a>
+          <a href="#contact" class="text-gray-700 hover:text-yellow-500">Contact</a>
+        </nav>
+      </div>
+    </header>
 
-  <main class="container">
-    <section class="text-section">
-      <h2>Your trusted logistics partner</h2>
-      <p>DriverSathi helps vehicle owners find reliable drivers and helps drivers find return loads after dropping goods. India's first all-in-one logistics network to simplify transport via direct WhatsApp connections.</p>
+    <!-- Hero Section -->
+    <section class="bg-yellow-100 py-20 text-center">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl font-bold text-yellow-800 mb-4">Connecting Drivers and Loads Across India</h2>
+        <p class="text-lg text-yellow-900 mb-6">Find trusted drivers or register your vehicle — fast, reliable, and on WhatsApp</p>
+        <a href="#register" class="bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-3 rounded-lg font-semibold">Get Started</a>
+      </div>
     </section>
-    <section class="button-section">
-      <button class="btn-yellow" onclick="showDrivers()"><i class="fas fa-user-check"></i> Find Driver</button>
-      <button class="btn-white"><i class="fas fa-box"></i> Find Load</button>
-      <button class="btn-dark-yellow" onclick="document.getElementById('whatsappForm').style.display='block'"><i class="fab fa-whatsapp"></i> Book on WhatsApp</button>
-      <button class="btn-yellow" onclick="document.getElementById('driverForm').style.display='block'">I am Driver</button>
-      <button class="btn-white" onclick="alert('Coming soon: Vehicle Owner registration.')">I am Vehicle Owner</button>
+
+    <!-- Services -->
+    <section id="services" class="py-16 bg-white text-center">
+      <h3 class="text-3xl font-bold text-yellow-600 mb-10">Our Services</h3>
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+        <div class="bg-yellow-50 p-6 rounded-xl shadow hover:shadow-lg">
+          <i class="fas fa-users text-3xl text-yellow-600 mb-4"></i>
+          <h4 class="text-xl font-semibold mb-2">Driver Registration</h4>
+          <p>Let verified drivers get listed and start earning through consistent logistics support.</p>
+        </div>
+        <div class="bg-yellow-50 p-6 rounded-xl shadow hover:shadow-lg">
+          <i class="fas fa-truck text-3xl text-yellow-600 mb-4"></i>
+          <h4 class="text-xl font-semibold mb-2">Vehicle Owner Registration</h4>
+          <p>Vehicle owners can list their trucks or vans and get driver matches instantly.</p>
+        </div>
+        <div class="bg-yellow-50 p-6 rounded-xl shadow hover:shadow-lg">
+          <i class="fab fa-whatsapp text-3xl text-yellow-600 mb-4"></i>
+          <h4 class="text-xl font-semibold mb-2">WhatsApp Booking</h4>
+          <p>Simple & direct booking via WhatsApp, no apps or downloads needed.</p>
+        </div>
+      </div>
     </section>
-  </main>
 
-  <div class="container" id="driverForm" style="display:none;">
-    <h3>Driver Registration</h3>
-    <form onsubmit="registerDriver(event)">
-      <input type="text" id="name" placeholder="Name" required />
-      <input type="number" id="age" placeholder="Age" required />
-      <input type="text" id="experience" placeholder="Experience (e.g. 5 years)" required />
-      <input type="tel" id="number" placeholder="Contact Number" required />
-      <button class="btn-yellow" type="submit">Submit</button>
-    </form>
-  </div>
+    <!-- Registration -->
+    <section id="register" class="bg-gray-100 py-16">
+      <div class="max-w-3xl mx-auto px-4">
+        <h3 class="text-3xl font-bold text-center text-yellow-600 mb-10">Register with DriverSathi</h3>
 
-  <div class="container" id="driverList" style="display:none;">
-    <h3>Registered Drivers</h3>
-    <ul id="driverDetails"></ul>
-  </div>
+        <div class="bg-white rounded-lg shadow p-6 mb-8">
+          <h4 class="text-xl font-semibold mb-4 text-gray-700">Driver Registration</h4>
+          <form id="driverForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input type="text" placeholder="Name" class="p-3 rounded border" required>
+            <input type="number" placeholder="Age" class="p-3 rounded border" required>
+            <input type="text" placeholder="Experience (e.g. 5 years)" class="p-3 rounded border" required>
+            <input type="tel" placeholder="Contact Number" class="p-3 rounded border" required>
+            <button type="submit" class="col-span-1 md:col-span-2 bg-yellow-500 text-white py-3 rounded hover:bg-yellow-600">Submit</button>
+          </form>
+        </div>
 
-  <div id="whatsappForm" style="display:none;">
-    <h3>Book via WhatsApp</h3>
-    <form onsubmit="sendToWhatsApp(event)">
-      <select id="role" required>
-        <option value="">You are...</option>
-        <option value="Vehicle Owner">Vehicle Owner</option>
-        <option value="Customer">Customer</option>
-      </select>
-      <input type="text" id="from" placeholder="From Location" required />
-      <input type="text" id="to" placeholder="To Location" required />
-      <input type="text" id="details" placeholder="Box count / Vehicle size" required />
-      <button class="btn-yellow" type="submit">Send on WhatsApp</button>
-    </form>
-  </div>
-
-  <section class="services" id="services">
-    <h3>Our Services</h3>
-    <div class="cards">
-      <div class="card">
-        <i class="fas fa-users"></i>
-        <h4>Driver Matching</h4>
-        <p>Connect instantly with verified and reliable drivers across India.</p>
+        <div class="bg-white rounded-lg shadow p-6">
+          <h4 class="text-xl font-semibold mb-4 text-gray-700">Vehicle Owner Registration</h4>
+          <form id="ownerForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input type="text" placeholder="Owner Name" class="p-3 rounded border" required>
+            <input type="text" placeholder="Vehicle Type (e.g. Tata 407)" class="p-3 rounded border" required>
+            <input type="text" placeholder="From Location" class="p-3 rounded border" required>
+            <input type="text" placeholder="To Location" class="p-3 rounded border" required>
+            <input type="tel" placeholder="Contact Number" class="p-3 rounded border" required>
+            <button type="submit" class="col-span-1 md:col-span-2 bg-yellow-500 text-white py-3 rounded hover:bg-yellow-600">Submit</button>
+          </form>
+        </div>
       </div>
-      <div class="card">
-        <i class="fas fa-truck"></i>
-        <h4>Load Finder</h4>
-        <p>Drivers can find return loads and avoid empty return trips, boosting income.</p>
-      </div>
-      <div class="card">
-        <i class="fab fa-whatsapp"></i>
-        <h4>WhatsApp Booking</h4>
-        <p>Fast, direct communication with logistics partners through WhatsApp.</p>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    © All Rights Reserved — DriverSathi 2025
-  </footer>
+    <!-- Contact Footer -->
+    <footer id="contact" class="bg-black text-white py-10 text-center">
+      <h4 class="text-xl font-semibold mb-2">DriverSathi © 2025</h4>
+      <p>Contact: support@driversathi.site | +91-99608-24574</p>
+    </footer>
 
-  <script>
-    function registerDriver(e) {
-      e.preventDefault();
-      const name = document.getElementById('name').value;
-      const age = document.getElementById('age').value;
-      const experience = document.getElementById('experience').value;
-      const number = document.getElementById('number').value;
+    <script>
+      document.getElementById('driverForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Driver registered successfully! (This will be stored in backend later)');
+      });
 
-      const driver = { name, age, experience, number };
-      let drivers = JSON.parse(localStorage.getItem('drivers')) || [];
-      drivers.push(driver);
-      localStorage.setItem('drivers', JSON.stringify(drivers));
-
-      alert('Driver Registered Successfully!');
-      document.getElementById('driverForm').style.display = 'none';
-    }
-
-    function showDrivers() {
-      const drivers = JSON.parse(localStorage.getItem('drivers')) || [];
-      const list = document.getElementById('driverDetails');
-      list.innerHTML = '';
-      if (drivers.length === 0) {
-        list.innerHTML = '<li>No drivers registered yet.</li>';
-      } else {
-        drivers.forEach(driver => {
-          list.innerHTML += `<li><strong>${driver.name}</strong>, Age: ${driver.age}, Experience: ${driver.experience}, Contact: ${driver.number}</li>`;
-        });
-      }
-      document.getElementById('driverList').style.display = 'block';
-    }
-
-    function sendToWhatsApp(e) {
-      e.preventDefault();
-      const role = document.getElementById('role').value;
-      const from = document.getElementById('from').value;
-      const to = document.getElementById('to').value;
-      const details = document.getElementById('details').value;
-      const message = `Hi, I'm a ${role}. From: ${from}, To: ${to}, Details: ${details}`;
-      const url = `https://wa.me/919960824574?text=${encodeURIComponent(message)}`;
-      window.open(url, '_blank');
-    }
-  </script>
-</body>
+      document.getElementById('ownerForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Vehicle owner registered successfully! (This will be stored in backend later)');
+      });
+    </script>
+  </body>
 </html>
