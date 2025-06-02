@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DriverSathi — Logistics Simplified</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
     * {
@@ -15,161 +15,244 @@
     body {
       font-family: 'Inter', sans-serif;
       background-color: #f9fafb;
-      color: #111827;
+      color: #1f2a44;
+      line-height: 1.6;
       overflow-x: hidden;
     }
+    /* Header */
     header {
-      background: linear-gradient(90deg, #dc2626, #b91c1c);
+      background: linear-gradient(90deg, #b91c1c, #dc2626);
       color: white;
-      padding: 20px 40px;
+      padding: 1.5rem 3rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: sticky;
       top: 0;
-      z-index: 999;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     }
     header h1 {
-      font-size: 28px;
+      font-size: 1.8rem;
       font-weight: 800;
     }
     nav a {
       color: white;
-      margin-left: 20px;
+      margin-left: 1.5rem;
       text-decoration: none;
       font-weight: 500;
-      transition: color 0.3s ease;
+      font-size: 1rem;
+      transition: color 0.3s ease, transform 0.2s ease;
     }
     nav a:hover {
-      color: #fde68a;
+      color: #fef3c7;
+      transform: translateY(-2px);
     }
+    /* Hero Section */
     .hero {
       background: url('https://images.unsplash.com/photo-1570129477492-45c003edd2be') no-repeat center center/cover;
-      min-height: 90vh;
+      min-height: 80vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 40px;
+      padding: 2rem;
       color: white;
       position: relative;
     }
     .hero::after {
       content: "";
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0,0,0,0.5);
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.6);
     }
     .hero-content {
       position: relative;
-      max-width: 800px;
+      max-width: 700px;
       z-index: 10;
       animation: fadeInUp 1s ease forwards;
     }
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
+      from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
     .hero-content h2 {
-      font-size: 48px;
-      margin-bottom: 20px;
+      font-size: 2.8rem;
       font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
     }
     .hero-content p {
-      font-size: 18px;
-      margin-bottom: 30px;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
     }
     .btn-primary {
-      background: #facc15;
-      padding: 14px 30px;
+      background: linear-gradient(90deg, #facc15, #f59e0b);
+      color: #1f2a44;
+      padding: 0.9rem 2rem;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       font-weight: 600;
-      font-size: 16px;
+      font-size: 1.1rem;
       cursor: pointer;
-      transition: transform 0.3s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .btn-primary:hover {
-      transform: scale(1.05);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
     }
+    /* Sections */
     .section {
-      padding: 60px 20px;
+      padding: 4rem 1.5rem;
       max-width: 1200px;
       margin: auto;
     }
     .section h3 {
-      font-size: 32px;
-      margin-bottom: 20px;
+      font-size: 2rem;
+      font-weight: 700;
       color: #b91c1c;
+      text-align: center;
+      margin-bottom: 2rem;
     }
+    /* Forms */
     .form-card {
       background: white;
-      border-radius: 16px;
-      padding: 30px;
-      margin-bottom: 30px;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+    .form-card:hover {
+      transform: translateY(-5px);
     }
     .form-card h4 {
-      margin-bottom: 20px;
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+      color: #1f2a44;
     }
     .form-card input, .form-card select {
       width: 100%;
-      padding: 12px;
-      margin-bottom: 15px;
-      border: 1px solid #ddd;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: 1px solid #d1d5db;
       border-radius: 8px;
-      font-size: 15px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    .form-card input:focus {
+      outline: none;
+      border-color: #b91c1c;
+      box-shadow: 0 0 5px rgba(185, 28, 28, 0.3);
     }
     .form-card button {
       background: #b91c1c;
       color: white;
       border: none;
-      padding: 12px;
+      padding: 0.8rem;
       width: 100%;
       border-radius: 8px;
-      font-size: 16px;
+      font-size: 1rem;
       font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
     }
+    .form-card button:hover {
+      background: #991b1b;
+    }
+    /* Ads Section */
     .ads-section {
-      background: #fff7ed;
-      padding: 40px 20px;
+      background: #fef3c7;
+      padding: 3rem 1.5rem;
       text-align: center;
     }
     .ads-section h4 {
-      font-size: 24px;
-      margin-bottom: 20px;
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: #1f2a44;
     }
     .ads-placeholder {
-      height: 120px;
-      background: #fcd34d;
+      height: 150px;
+      background: #facc15;
       border-radius: 12px;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-weight: bold;
-      color: #78350f;
+      font-weight: 600;
+      color: #1f2a44;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
+    /* About Section */
     .about {
       text-align: center;
     }
-    footer {
-      background: #111827;
-      color: #9ca3af;
-      text-align: center;
-      padding: 40px 20px;
+    .about p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1.1rem;
+      color: #4b5563;
     }
+    /* Footer */
+    footer {
+      background: #1f2a44;
+      color: #d1d5db;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    footer a {
+      color: #facc15;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    /* WhatsApp Button */
     .whatsapp-btn {
       position: fixed;
       bottom: 20px;
       right: 20px;
       background-color: #25D366;
       color: white;
-      font-size: 22px;
-      padding: 15px;
+      font-size: 1.8rem;
+      padding: 1rem;
       border-radius: 50%;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      z-index: 999;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      transition: transform 0.3s ease;
+    }
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+    }
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      nav a {
+        margin-left: 1rem;
+        font-size: 0.9rem;
+      }
+      .hero-content h2 {
+        font-size: 2rem;
+      }
+      .hero-content p {
+        font-size: 1rem;
+      }
+      .btn-primary {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+      }
+      .section h3 {
+        font-size: 1.5rem;
+      }
+      .form-card {
+        padding: 1.5rem;
+      }
     }
   </style>
 </head>
@@ -186,9 +269,9 @@
 
   <section class="hero">
     <div class="hero-content">
-      <h2>Smart Logistics Made Easy</h2>
-      <p>Connecting Drivers, Vehicle Owners & Load Providers across India with just one click.</p>
-      <button class="btn-primary" onclick="document.getElementById('register').scrollIntoView({ behavior: 'smooth' })">Register Now</button>
+      <h2>Smart Logistics, Simplified</h2>
+      <p>Connecting Drivers, Vehicle Owners, and Load Providers across India with seamless efficiency.</p>
+      <button class="btn-primary" onclick="document.getElementById('register').scrollIntoView({ behavior: 'smooth' })">Get Started Now</button>
     </div>
   </section>
 
@@ -196,23 +279,23 @@
     <h3>Quick Registrations</h3>
     <div class="form-card">
       <h4>Driver Registration</h4>
-      <input type="text" placeholder="Full Name">
-      <input type="text" placeholder="Phone Number">
-      <input type="text" placeholder="License Number">
+      <input type="text" placeholder="Full Name" required>
+      <input type="tel" placeholder="Phone Number" required>
+      <input type="text" placeholder="License Number" required>
       <button>Register as Driver</button>
     </div>
     <div class="form-card">
       <h4>Vehicle Owner Registration</h4>
-      <input type="text" placeholder="Full Name">
-      <input type="text" placeholder="Company Name">
-      <input type="text" placeholder="Contact Number">
+      <input type="text" placeholder="Full Name" required>
+      <input type="text" placeholder="Company Name" required>
+      <input type="tel" placeholder="Contact Number" required>
       <button>Register as Owner</button>
     </div>
     <div class="form-card">
       <h4>Seller Registration</h4>
-      <input type="text" placeholder="Business Name">
-      <input type="text" placeholder="Contact Number">
-      <input type="text" placeholder="Product Type">
+      <input type="text" placeholder="Business Name" required>
+      <input type="tel" placeholder="Contact Number" required>
+      <input type="text" placeholder="Product Type" required>
       <button>Register as Seller</button>
     </div>
   </section>
@@ -224,11 +307,11 @@
 
   <section class="section about" id="about">
     <h3>About DriverSathi</h3>
-    <p>DriverSathi is India’s first integrated driver-load platform built to ease the logistics journey for all parties involved — from the driver, vehicle owner to the seller. Connect. Communicate. Transport.</p>
+    <p>DriverSathi is India’s premier integrated driver-load platform, designed to streamline logistics for drivers, vehicle owners, and sellers. Connect effortlessly, communicate clearly, and transport efficiently.</p>
   </section>
 
   <footer>
-    <p>Need help? <a href="#" style="color: #facc15; text-decoration: underline;">Contact Support</a></p>
+    <p>Need help? <a href="#">Contact Support</a></p>
     <p>© 2025 DriverSathi.site — All Rights Reserved</p>
   </footer>
 
