@@ -182,17 +182,6 @@
     .step p {
       color: #4b5563;
     }
-    /* How We Earn Section */
-    .earn-list {
-      max-width: 800px;
-      margin: 2rem auto;
-      text-align: left;
-    }
-    .earn-list li {
-      font-size: 1.1rem;
-      color: #4b5563;
-      margin-bottom: 1rem;
-    }
     /* Forms */
     .form-card {
       background: white;
@@ -238,6 +227,46 @@
     }
     .form-card button:hover {
       background: #991b1b;
+    }
+    /* Verification Options */
+    .verification-options {
+      display: none;
+      margin-top: 1.5rem;
+      text-align: center;
+    }
+    .verification-options p {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .btn-verify {
+      background: #28a745;
+      color: white;
+    }
+    .btn-verify:hover {
+      background: #218838;
+    }
+    .btn-skip {
+      background: #6c757d;
+      color: white;
+    }
+    .btn-skip:hover {
+      background: #5a6268;
+    }
+    .benefits {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      background: #f1f1f1;
+      border-radius: 8px;
+    }
+    .benefits h5 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: #b91c1c;
+    }
+    .benefits ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+      color: #4b5563;
     }
     /* Testimonials Section */
     .testimonial {
@@ -315,7 +344,7 @@
       .hero-content p {
         font-size: 1rem;
       }
-      .btn-primary, .btn-secondary {
+      .btn-primary, .btn-secondary, .btn-verify, .btn-skip {
         padding: 0.8rem 1.5rem;
         font-size: 1rem;
       }
@@ -353,7 +382,7 @@
   <!-- CTA Section -->
   <section class="cta-section">
     <a href="#contact" class="btn-primary">Book a Driver</a>
-    <a href="#driver-signup" class="btn-secondary">Post a Job</a>
+    <a href="#contact" class="btn-secondary">Post a Job</a>
     <a href="#driver-signup" class="btn-secondary">Register as Driver</a>
   </section>
 
@@ -404,16 +433,6 @@
     </div>
   </section>
 
-  <!-- How Do We Earn Section -->
-  <section class="section" id="how-we-earn">
-    <h3>How DriverSathi Earns</h3>
-    <ul class="earn-list">
-      <li>We charge small commission from customers per booking (₹50 - ₹200 per ride).</li>
-      <li>We offer driver subscriptions for verified job access at ₹199/month.</li>
-      <li>Corporate clients pay us monthly for bulk driver tie-ups (₹5k - ₹10k per driver).</li>
-    </ul>
-  </section>
-
   <!-- Contact Form Section -->
   <section class="section" id="contact">
     <h3>Contact Us</h3>
@@ -439,14 +458,28 @@
     <h3>Driver Signup</h3>
     <div class="form-card">
       <h4>Join as a Driver</h4>
-      <form action="https://formspree.io/f/your-form-id" method="POST">
+      <form id="driver-signup-form" onsubmit="showVerificationOptions(); return false;">
         <input type="text" name="name" placeholder="Full Name" required>
         <input type="text" name="license" placeholder="License Number" required>
         <input type="text" name="experience" placeholder="Years of Experience" required>
         <input type="text" name="city" placeholder="City" required>
         <input type="tel" name="phone" placeholder="Contact Number" required>
-        <button type="submit">Sign Up</button>
+        <button type="submit">Submit Details</button>
       </form>
+      <div class="verification-options" id="verification-options">
+        <p>Do you want to get verified for ₹199 and gain more visibility?</p>
+        <button class="btn-verify" onclick="alert('Redirecting to payment gateway for ₹199...')">Pay ₹199 & Get Verified</button>
+        <button class="btn-skip" onclick="alert('Registered successfully without verification!')">Skip</button>
+        <div class="benefits">
+          <h5>Benefits of Getting Verified:</h5>
+          <ul>
+            <li>Get a verified tick ✅ next to your profile</li>
+            <li>Higher visibility to customers</li>
+            <li>Priority job assignments</li>
+            <li>Build trust with clients</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -473,5 +506,12 @@
   <a class="whatsapp-btn" href="https://wa.me/919960824574" target="_blank">
     <i class="fab fa-whatsapp"></i>
   </a>
+
+  <script>
+    function showVerificationOptions() {
+      document.getElementById('driver-signup-form').style.display = 'none';
+      document.getElementById('verification-options').style.display = 'block';
+    }
+  </script>
 </body>
 </html>
