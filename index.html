@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DriverSathi — Logistics Simplified</title>
+  <title>DriverSathi — Hire Verified Drivers</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
@@ -67,7 +67,7 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(0, 0, 0, 0.65); /* Dark overlay for contrast */
+      background: rgba(0, 0, 0, 0.65);
     }
     .hero-content {
       position: relative;
@@ -80,7 +80,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
     .hero-content h2 {
-      font-size: 2.8rem;
+      font-size: 3rem;
       font-weight: 800;
       margin-bottom: 1.5rem;
       line-height: 1.2;
@@ -89,9 +89,7 @@
       font-size: 1.2rem;
       margin-bottom: 2rem;
     }
-    .btn-primary {
-      background: linear-gradient(90deg, #facc15, #f59e0b);
-      color: #1f2a44;
+    .btn-primary, .btn-secondary {
       padding: 0.9rem 2rem;
       border: none;
       border-radius: 10px;
@@ -99,8 +97,18 @@
       font-size: 1.1rem;
       cursor: pointer;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin: 0 0.5rem;
     }
-    .btn-primary:hover {
+    .btn-primary {
+      background: linear-gradient(90deg, #facc15, #f59e0b);
+      color: #1f2a44;
+    }
+    .btn-secondary {
+      background: #fff;
+      color: #b91c1c;
+      border: 2px solid #b91c1c;
+    }
+    .btn-primary:hover, .btn-secondary:hover {
       transform: translateY(-3px);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
     }
@@ -116,6 +124,57 @@
       color: #b91c1c;
       text-align: center;
       margin-bottom: 2rem;
+    }
+    /* Services Section */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .service-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+    }
+    .service-card i {
+      font-size: 2.5rem;
+      color: #b91c1c;
+      margin-bottom: 1rem;
+    }
+    .service-card h4 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    .service-card p {
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+    /* How It Works Section */
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .step {
+      flex: 1;
+      min-width: 200px;
+      text-align: center;
+    }
+    .step h4 {
+      font-size: 1.2rem;
+      margin: 0.5rem 0;
+    }
+    .step p {
+      color: #4b5563;
     }
     /* Forms */
     .form-card {
@@ -143,7 +202,7 @@
       font-size: 1rem;
       transition: border-color 0.3s ease;
     }
-    .form-card input:focus {
+    .form-card input:focus, .form-card select:focus {
       outline: none;
       border-color: #b91c1c;
       box-shadow: 0 0 5px rgba(185, 28, 28, 0.3);
@@ -162,28 +221,6 @@
     }
     .form-card button:hover {
       background: #991b1b;
-    }
-    /* Ads Section */
-    .ads-section {
-      background: #fef3c7;
-      padding: 3rem 1.5rem;
-      text-align: center;
-    }
-    .ads-section h4 {
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      color: #1f2a44;
-    }
-    .ads-placeholder {
-      height: 150px;
-      background: #facc15;
-      border-radius: 12px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-weight: 600;
-      color: #1f2a44;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
     /* About Section */
     .about {
@@ -206,9 +243,13 @@
       color: #facc15;
       text-decoration: none;
       font-weight: 500;
+      margin: 0 0.5rem;
     }
     footer a:hover {
       text-decoration: underline;
+    }
+    .footer-links {
+      margin: 1rem 0;
     }
     /* WhatsApp Button */
     .whatsapp-btn {
@@ -243,7 +284,7 @@
       .hero-content p {
         font-size: 1rem;
       }
-      .btn-primary {
+      .btn-primary, .btn-secondary {
         padding: 0.8rem 1.5rem;
         font-size: 1rem;
       }
@@ -261,57 +302,115 @@
     <h1>DriverSathi</h1>
     <nav>
       <a href="#">Home</a>
-      <a href="#register">Register</a>
-      <a href="#ads">Ads</a>
-      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#contact">Contact</a>
+      <a href="#driver-signup">Driver Signup</a>
     </nav>
   </header>
 
+  <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <h2>Smart Logistics, Simplified</h2>
-      <p>Connecting Drivers, Vehicle Owners, and Load Providers across India with seamless efficiency.</p>
-      <button class="btn-primary" onclick="document.getElementById('register').scrollIntoView({ behavior: 'smooth' })">Get Started Now</button>
+      <h2>Hire Verified Drivers Instantly</h2>
+      <p>On-demand drivers for personal and commercial needs</p>
+      <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Hire a Driver</button>
+      <button class="btn-secondary" onclick="document.getElementById('driver-signup').scrollIntoView({ behavior: 'smooth' })">Become a Driver</button>
     </div>
   </section>
 
-  <section class="section" id="register">
-    <h3>Quick Registrations</h3>
-    <div class="form-card">
-      <h4>Driver Registration</h4>
-      <input type="text" placeholder="Full Name" required>
-      <input type="tel" placeholder="Phone Number" required>
-      <input type="text" placeholder="License Number" required>
-      <button>Register as Driver</button>
-    </div>
-    <div class="form-card">
-      <h4>Vehicle Owner Registration</h4>
-      <input type="text" placeholder="Full Name" required>
-      <input type="text" placeholder="Company Name" required>
-      <input type="tel" placeholder="Contact Number" required>
-      <button>Register as Owner</button>
-    </div>
-    <div class="form-card">
-      <h4>Seller Registration</h4>
-      <input type="text" placeholder="Business Name" required>
-      <input type="tel" placeholder="Contact Number" required>
-      <input type="text" placeholder="Product Type" required>
-      <button>Register as Seller</button>
-    </div>
-  </section>
-
-  <section class="ads-section" id="ads">
-    <h4>Our Advertisement Section</h4>
-    <div class="ads-placeholder">Your Ad Here (Coming Soon)</div>
-  </section>
-
+  <!-- About Section -->
   <section class="section about" id="about">
     <h3>About DriverSathi</h3>
-    <p>DriverSathi is India’s premier integrated driver-load platform, designed to streamline logistics for drivers, vehicle owners, and sellers. Connect effortlessly, communicate clearly, and transport efficiently.</p>
+    <p>At DriverSathi, our mission is to provide reliable, verified drivers for all your needs. We ensure a rigorous driver verification process to guarantee safety and professionalism. Choose DriverSathi for seamless, efficient, and trustworthy driver services across India.</p>
   </section>
 
+  <!-- Services Section -->
+  <section class="section" id="services">
+    <h3>Our Services</h3>
+    <div class="services-grid">
+      <div class="service-card">
+        <i class="fas fa-car"></i>
+        <h4>Outstation Driver</h4>
+        <p>Hire drivers for outstation trips with ease.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-truck"></i>
+        <h4>Commercial/Delivery Driver</h4>
+        <p>Professional drivers for commercial and delivery needs.</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-clock"></i>
+        <h4>Hourly/Daily Driver</h4>
+        <p>Flexible hourly or daily driver services.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="section" id="how-it-works">
+    <h3>How It Works</h3>
+    <div class="steps">
+      <div class="step">
+        <h4>Step 1: Choose Service</h4>
+        <p>Select the type of driver service you need.</p>
+      </div>
+      <div class="step">
+        <h4>Step 2: Enter Location & Time</h4>
+        <p>Specify your location and preferred time.</p>
+      </div>
+      <div class="step">
+        <h4>Step 3: Driver Reaches on Time</h4>
+        <p>Your driver arrives promptly at your location.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="section" id="contact">
+    <h3>Contact Us</h3>
+    <div class="form-card">
+      <h4>Request a Driver</h4>
+      <form id="contact-form" onsubmit="alert('Form submitted successfully!'); return false;">
+        <input type="text" placeholder="Full Name" required>
+        <input type="tel" placeholder="Phone Number" required>
+        <input type="email" placeholder="Email Address" required>
+        <select required>
+          <option value="" disabled selected>Select Service Type</option>
+          <option value="outstation">Outstation Driver</option>
+          <option value="commercial">Commercial/Delivery Driver</option>
+          <option value="hourly">Hourly/Daily Driver</option>
+        </select>
+        <button type="submit">Submit Request</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Driver Signup Section -->
+  <section class="section" id="driver-signup">
+    <h3>Driver Signup</h3>
+    <div class="form-card">
+      <h4>Join as a Driver</h4>
+      <form id="driver-signup-form" onsubmit="alert('Driver signup submitted successfully!'); return false;">
+        <input type="text" placeholder="Full Name" required>
+        <input type="text" placeholder="License Number" required>
+        <input type="text" placeholder="Years of Experience" required>
+        <input type="text" placeholder="City" required>
+        <input type="tel" placeholder="Contact Number" required>
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>Need help? <a href="#">Contact Support</a></p>
+    <div class="footer-links">
+      <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+      <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+      <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+    </div>
+    <p>123 DriverSathi Lane, Mumbai, India | <a href="#">Contact Support</a></p>
+    <p><a href="#">Terms & Conditions</a> | <a href="#">Privacy Policy</a></p>
     <p>© 2025 DriverSathi.site — All Rights Reserved</p>
   </footer>
 
