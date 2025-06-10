@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hire verified drivers instantly with DriverSathi for personal, delivery, or outstation needs.">
   <title>DriverSathi — Hire Verified Drivers</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -50,7 +51,7 @@
     }
     /* Hero Section */
     .hero {
-      background: url('https://images.pexels.com/photos/236705/pexels-photo-236705.jpeg') no-repeat center center/cover;
+      background: url('https://images.pexels.com/photos/236705/pexels-photo-236705.jpeg?auto=compress&cs=tinysrgb&w=600') no-repeat center center/cover;
       min-height: 80vh;
       display: flex;
       align-items: center;
@@ -125,6 +126,11 @@
       text-align: center;
       margin-bottom: 2rem;
     }
+    /* CTA Section */
+    .cta-section {
+      text-align: center;
+      margin: 2rem 0;
+    }
     /* Services Section */
     .services-grid {
       display: grid;
@@ -176,6 +182,17 @@
     .step p {
       color: #4b5563;
     }
+    /* How We Earn Section */
+    .earn-list {
+      max-width: 800px;
+      margin: 2rem auto;
+      text-align: left;
+    }
+    .earn-list li {
+      font-size: 1.1rem;
+      color: #4b5563;
+      margin-bottom: 1rem;
+    }
     /* Forms */
     .form-card {
       background: white;
@@ -221,6 +238,20 @@
     }
     .form-card button:hover {
       background: #991b1b;
+    }
+    /* Testimonials Section */
+    .testimonial {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1rem auto;
+      max-width: 800px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    }
+    .testimonial p {
+      font-size: 1.1rem;
+      color: #4b5563;
+      font-style: italic;
     }
     /* About Section */
     .about {
@@ -312,11 +343,18 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <h2>Hire Verified Drivers Instantly</h2>
-      <p>On-demand drivers for personal and commercial needs</p>
-      <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({ behavior: 'smooth' })">Hire a Driver</button>
-      <button class="btn-secondary" onclick="document.getElementById('driver-signup').scrollIntoView({ behavior: 'smooth' })">Become a Driver</button>
+      <h2>DriverSathi - Hire Verified Drivers Instantly</h2>
+      <p>Get drivers for personal rides, delivery, or outstation</p>
+      <a href="#contact" class="btn-primary">Hire a Driver</a>
+      <a href="#driver-signup" class="btn-secondary">Become a Driver</a>
     </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <a href="#contact" class="btn-primary">Book a Driver</a>
+    <a href="#driver-signup" class="btn-secondary">Post a Job</a>
+    <a href="#driver-signup" class="btn-secondary">Register as Driver</a>
   </section>
 
   <!-- About Section -->
@@ -332,17 +370,17 @@
       <div class="service-card">
         <i class="fas fa-car"></i>
         <h4>Outstation Driver</h4>
-        <p>Hire drivers for outstation trips with ease.</p>
-      </div>
-      <div class="service-card">
-        <i class="fas fa-truck"></i>
-        <h4>Commercial/Delivery Driver</h4>
-        <p>Professional drivers for commercial and delivery needs.</p>
+        <p>Hire drivers for outstation round-trips</p>
       </div>
       <div class="service-card">
         <i class="fas fa-clock"></i>
-        <h4>Hourly/Daily Driver</h4>
-        <p>Flexible hourly or daily driver services.</p>
+        <h4>Daily/Hourly Driver</h4>
+        <p>Book drivers by hour/day for personal car</p>
+      </div>
+      <div class="service-card">
+        <i class="fas fa-truck"></i>
+        <h4>Delivery Driver</h4>
+        <p>Hire drivers for logistics and deliveries</p>
       </div>
     </div>
   </section>
@@ -366,20 +404,30 @@
     </div>
   </section>
 
+  <!-- How Do We Earn Section -->
+  <section class="section" id="how-we-earn">
+    <h3>How DriverSathi Earns</h3>
+    <ul class="earn-list">
+      <li>We charge small commission from customers per booking (₹50 - ₹200 per ride).</li>
+      <li>We offer driver subscriptions for verified job access at ₹199/month.</li>
+      <li>Corporate clients pay us monthly for bulk driver tie-ups (₹5k - ₹10k per driver).</li>
+    </ul>
+  </section>
+
   <!-- Contact Form Section -->
   <section class="section" id="contact">
     <h3>Contact Us</h3>
     <div class="form-card">
       <h4>Request a Driver</h4>
-      <form id="contact-form" onsubmit="alert('Form submitted successfully!'); return false;">
-        <input type="text" placeholder="Full Name" required>
-        <input type="tel" placeholder="Phone Number" required>
-        <input type="email" placeholder="Email Address" required>
-        <select required>
+      <form action="https://formspree.io/f/your-form-id" method="POST">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <select name="service" required>
           <option value="" disabled selected>Select Service Type</option>
           <option value="outstation">Outstation Driver</option>
-          <option value="commercial">Commercial/Delivery Driver</option>
-          <option value="hourly">Hourly/Daily Driver</option>
+          <option value="daily">Daily/Hourly Driver</option>
+          <option value="delivery">Delivery Driver</option>
         </select>
         <button type="submit">Submit Request</button>
       </form>
@@ -391,14 +439,22 @@
     <h3>Driver Signup</h3>
     <div class="form-card">
       <h4>Join as a Driver</h4>
-      <form id="driver-signup-form" onsubmit="alert('Driver signup submitted successfully!'); return false;">
-        <input type="text" placeholder="Full Name" required>
-        <input type="text" placeholder="License Number" required>
-        <input type="text" placeholder="Years of Experience" required>
-        <input type="text" placeholder="City" required>
-        <input type="tel" placeholder="Contact Number" required>
+      <form action="https://formspree.io/f/your-form-id" method="POST">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="text" name="license" placeholder="License Number" required>
+        <input type="text" name="experience" placeholder="Years of Experience" required>
+        <input type="text" name="city" placeholder="City" required>
+        <input type="tel" name="phone" placeholder="Contact Number" required>
         <button type="submit">Sign Up</button>
       </form>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="section" id="testimonials">
+    <h3>What Our Users Say</h3>
+    <div class="testimonial">
+      <p>"DriverSathi se mujhe 3 hour me driver mil gaya - thank you!"</p>
     </div>
   </section>
 
