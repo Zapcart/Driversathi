@@ -38,6 +38,10 @@
       font-weight: 700;
       letter-spacing: 1px;
     }
+    nav {
+      display: flex;
+      align-items: center;
+    }
     nav a {
       color: white;
       margin-left: 1.5rem;
@@ -63,8 +67,41 @@
     nav a:hover::after {
       width: 100%;
     }
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: white;
+    }
+    .nav-links {
+      display: flex;
+    }
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #b91c1c;
+        padding: 1rem;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      nav a {
+        margin: 0.5rem 0;
+        font-size: 1.2rem;
+        text-align: center;
+      }
+    }
     /* Animated Buttons */
-    .btn-primary, .btn-secondary, .btn-verify, .btn-skip {
+    .btn-primary, .btn-secondary, .btn-verify, .btn-skip, .btn-notify {
       padding: 1rem 2.5rem;
       border: none;
       border-radius: 12px;
@@ -171,6 +208,29 @@
       transform: translateY(-4px);
       box-shadow: 0 8px 24px rgba(107, 114, 128, 0.4);
     }
+    .btn-notify {
+      background: #2dd4bf;
+      color: white;
+    }
+    .btn-notify::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      transition: 0.5s;
+      z-index: -1;
+    }
+    .btn-notify:hover::before {
+      left: 100%;
+    }
+    .btn-notify:hover {
+      background: #14b8a6;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(45, 212, 191, 0.4);
+    }
     /* Hero Section */
     .hero {
       background: url('new-hero-image.png') no-repeat center center/cover;
@@ -183,6 +243,7 @@
       color: white;
       position: relative;
       animation: heroFade 1.5s ease;
+      background-attachment: fixed;
     }
     @keyframes heroFade {
       from { opacity: 0; }
@@ -214,6 +275,14 @@
       line-height: 1.2;
       text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     }
+    .hero-content h2 span {
+      display: inline-block;
+      opacity: 0;
+      animation: type 0.05s forwards;
+    }
+    @keyframes type {
+      to { opacity: 1; }
+    }
     .hero-content p {
       font-size: 1.3rem;
       margin-bottom: 2rem;
@@ -227,7 +296,13 @@
       border-radius: 20px;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
       margin-bottom: 3rem;
-      transition: transform 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     .section:hover {
       transform: translateY(-5px);
@@ -258,6 +333,13 @@
       padding: 3rem;
       border-radius: 20px;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .cta-section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
     .cta-buttons {
       display: flex;
@@ -460,6 +542,7 @@
       position: relative;
       overflow: hidden;
       text-align: center;
+      background-image: url('data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%232dd4bf" fill-opacity="0.1"%3E%3Cpath d="M0 0h2v2H0zM4 4h2v2H4zM8 8h2v2H8zM12 12h2v2h-2zM16 16h2v2h-2z"/%3E%3C/g%3E%3C/svg%3E');
     }
     .mobile-app::before {
       content: '';
@@ -489,6 +572,7 @@
       display: flex;
       justify-content: center;
       gap: 2rem;
+      margin-bottom: 2rem;
     }
     .app-icons i {
       font-size: 3rem;
@@ -497,7 +581,7 @@
     }
     .app-icons i:hover {
       transform: scale(1.2);
-      color: #ef4444;
+      color: #2dd4bf;
     }
     @media (max-width: 768px) {
       .mobile-app {
@@ -569,13 +653,9 @@
     /* Responsive Design */
     @media (max-width: 768px) {
       header {
-        flex-direction: column;
-        gap: 1.5rem;
+        flex-direction: row;
+        gap: 1rem;
         padding: 1.2rem;
-      }
-      nav a {
-        margin-left: 1rem;
-        font-size: 0.95rem;
       }
       .hero-content h2 {
         font-size: 2.5rem;
@@ -583,7 +663,7 @@
       .hero-content p {
         font-size: 1.1rem;
       }
-      .btn-primary, .btn-secondary, .btn-verify, .btn-skip, .form-card button {
+      .btn-primary, .btn-secondary, .btn-verify, .btn-skip, .btn-notify, .form-card button {
         padding: 1rem 2rem;
         font-size: 1rem;
       }
@@ -607,20 +687,32 @@
   <header>
     <h1>DriverSathi</h1>
     <nav>
-      <a href="#">Home</a>
-      <a href="#services">Services</a>
-      <a href="#how-it-works">How It Works</a>
-      <a href="#contact">Contact</a>
-      <a href="#driver-signup">Driver Signup</a>
-      <a href="#mobile-app">Mobile App</a>
-      <a href="#pricing">Pricing</a>
+      <div class="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#services">Services</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#contact">Contact</a>
+        <a href="#driver-signup">Driver Signup</a>
+        <a href="#mobile-app">Mobile App</a>
+        <a href="#pricing">Pricing</a>
+      </div>
     </nav>
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <h2>DriverSathi - Hire Verified Drivers Instantly</h2>
+      <h2>
+        <span>D</span><span>r</span><span>i</span><span>v</span><span>e</span><span>r</span><span>S</span><span>a</span><span>t</span><span>h</span><span>i</span>
+        <span>-</span>
+        <span>H</span><span>i</span><span>r</span><span>e</span>
+        <span>V</span><span>e</span><span>r</span><span>i</span><span>f</span><span>i</span><span>e</span><span>d</span>
+        <span>D</span><span>r</span><span>i</span><span>v</span><span>e</span><span>r</span><span>s</span>
+        <span>I</span><span>n</span><span>s</span><span>t</span><span>a</span><span>n</span><span>t</span><span>l</span><span>y</span>
+      </h2>
       <p>Your trusted platform for personal, delivery, or outstation drivers</p>
       <a href="#contact" class="btn-primary">Hire a Driver</a>
       <a href="#driver-signup" class="btn-secondary">Become a Driver</a>
@@ -760,6 +852,7 @@
         <i class="fab fa-android"></i>
         <i class="fab fa-apple"></i>
       </div>
+      <a href="#contact" class="btn-notify">Notify Me on Launch</a>
     </div>
   </section>
 
@@ -780,6 +873,35 @@
   </a>
 
   <script>
+    // Hamburger Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Typing Animation for Hero Text
+    const heroText = document.querySelectorAll('.hero-content h2 span');
+    heroText.forEach((span, index) => {
+      span.style.animationDelay = `${index * 0.05}s`;
+    });
+
+    // Scroll Animations
+    const sections = document.querySelectorAll('.section, .cta-section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
+    // Verification Options
     function showVerificationOptions() {
       document.getElementById('driver-signup-form').style.display = 'none';
       document.getElementById('verification-options').style.display = 'block';
