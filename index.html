@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Hire verified drivers instantly with DriverSathi for personal, delivery, or outstation needs.">
   <title>DriverSathi — Hire Verified Drivers</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
     * {
@@ -14,15 +14,15 @@
       box-sizing: border-box;
     }
     body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #f5f7fa 0%, #e4e7eb 100%);
-      color: #1a1a1a;
-      line-height: 1.7;
+      font-family: 'Inter', sans-serif;
+      background: #f0f4f8;
+      color: #1e293b;
+      line-height: 1.6;
       overflow-x: hidden;
     }
     /* Header */
     header {
-      background: #b91c1c;
+      background: linear-gradient(90deg, #ef4444 0%, #b91c1c 100%);
       color: white;
       padding: 1.5rem 2rem;
       display: flex;
@@ -31,11 +31,12 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
     header h1 {
-      font-size: 1.8rem;
+      font-size: 2rem;
       font-weight: 700;
+      letter-spacing: 1px;
     }
     nav a {
       color: white;
@@ -47,25 +48,133 @@
       transition: color 0.3s ease;
     }
     nav a:hover {
-      color: #ffd700;
+      color: #facc15;
     }
     nav a::after {
       content: '';
       position: absolute;
       width: 0;
-      height: 2px;
-      background: #ffd700;
+      height: 3px;
+      background: #facc15;
       left: 0;
-      bottom: -5px;
+      bottom: -6px;
       transition: width 0.3s ease;
     }
     nav a:hover::after {
       width: 100%;
     }
+    /* Animated Buttons */
+    .btn-primary, .btn-secondary, .btn-verify, .btn-skip {
+      padding: 1rem 2.5rem;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      z-index: 1;
+      margin: 0.5rem;
+    }
+    .btn-primary {
+      background: #facc15;
+      color: #1e293b;
+    }
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      transition: 0.5s;
+      z-index: -1;
+    }
+    .btn-primary:hover::before {
+      left: 100%;
+    }
+    .btn-primary:hover {
+      background: #eab308;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(250, 204, 21, 0.4);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: #facc15;
+      border: 2px solid #facc15;
+    }
+    .btn-secondary::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(250,204,21,0.4), transparent);
+      transition: 0.5s;
+      z-index: -1;
+    }
+    .btn-secondary:hover::before {
+      left: 100%;
+    }
+    .btn-secondary:hover {
+      background: #facc15;
+      color: #1e293b;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(250, 204, 21, 0.4);
+    }
+    .btn-verify {
+      background: #22c55e;
+      color: white;
+    }
+    .btn-verify::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      transition: 0.5s;
+      z-index: -1;
+    }
+    .btn-verify:hover::before {
+      left: 100%;
+    }
+    .btn-verify:hover {
+      background: #16a34a;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(34, 197, 94, 0.4);
+    }
+    .btn-skip {
+      background: #6b7280;
+      color: white;
+    }
+    .btn-skip::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      transition: 0.5s;
+      z-index: -1;
+    }
+    .btn-skip:hover::before {
+      left: 100%;
+    }
+    .btn-skip:hover {
+      background: #4b5563;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(107, 114, 128, 0.4);
+    }
     /* Hero Section */
     .hero {
       background: url('new-hero-image.png') no-repeat center center/cover;
-      min-height: 70vh;
+      min-height: 80vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -73,6 +182,11 @@
       padding: 3rem;
       color: white;
       position: relative;
+      animation: heroFade 1.5s ease;
+    }
+    @keyframes heroFade {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
     .hero::after {
       content: "";
@@ -81,134 +195,136 @@
       left: 0;
       right: 0;
       bottom: 0;
-      background: rgba(0, 0, 0, 0.5);
+      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4));
     }
     .hero-content {
       position: relative;
-      max-width: 800px;
+      max-width: 900px;
       z-index: 10;
-      animation: fadeIn 1.2s ease forwards;
+      animation: slideUp 1s ease forwards;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(50px); }
       to { opacity: 1; transform: translateY(0); }
     }
     .hero-content h2 {
-      font-size: 2.8rem;
+      font-size: 3.2rem;
       font-weight: 700;
       margin-bottom: 1.5rem;
-      line-height: 1.3;
+      line-height: 1.2;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     }
     .hero-content p {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       margin-bottom: 2rem;
-    }
-    .btn-primary, .btn-secondary, .btn-verify, .btn-skip {
-      padding: 1rem 2.5rem;
-      border: none;
-      border-radius: 50px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      margin: 0 0.5rem;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-    .btn-primary {
-      background: #ffd700;
-      color: #1a1a1a;
-    }
-    .btn-primary:hover {
-      background: #e6c200;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
-    }
-    .btn-secondary {
-      background: transparent;
-      color: #ffd700;
-      border: 2px solid #ffd700;
-    }
-    .btn-secondary:hover {
-      background: #ffd700;
-      color: #1a1a1a;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
-    }
-    .btn-verify {
-      background: #28a745;
-      color: white;
-    }
-    .btn-verify:hover {
-      background: #218838;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(40, 167, 69, 0.4);
-    }
-    .btn-skip {
-      background: #6c757d;
-      color: white;
-    }
-    .btn-skip:hover {
-      background: #5a6268;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(108, 117, 125, 0.4);
     }
     /* Sections */
     .section {
-      padding: 4rem 2rem;
+      padding: 5rem 2rem;
       max-width: 1200px;
       margin: auto;
       background: white;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-      margin-bottom: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      margin-bottom: 3rem;
+      transition: transform 0.3s ease;
+    }
+    .section:hover {
+      transform: translateY(-5px);
     }
     .section h3 {
-      font-size: 2rem;
+      font-size: 2.5rem;
       font-weight: 700;
-      color: #b91c1c;
+      color: #ef4444;
       text-align: center;
       margin-bottom: 2rem;
+      position: relative;
+    }
+    .section h3::after {
+      content: '';
+      width: 80px;
+      height: 4px;
+      background: #facc15;
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
     }
     /* CTA Section */
     .cta-section {
       text-align: center;
-      margin: 3rem 0;
-      background: white;
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      margin: 4rem 0;
+      background: linear-gradient(135deg, #fefce8 0%, #fef9c3 100%);
+      padding: 3rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    }
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 768px) {
+      .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      .cta-buttons a {
+        width: 90%;
+        text-align: center;
+      }
     }
     /* Services Section */
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
     .service-card {
-      background: #f9f9f9;
-      border-radius: 12px;
+      background: #f8fafc;
+      border-radius: 16px;
       padding: 2rem;
       text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: -100%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(239,68,68,0.1), transparent);
+      transition: 0.5s;
+    }
+    .service-card:hover::before {
+      top: 0;
     }
     .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
     }
     .service-card i {
-      font-size: 3rem;
-      color: #b91c1c;
+      font-size: 3.5rem;
+      color: #ef4444;
       margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+    }
+    .service-card:hover i {
+      transform: scale(1.2);
     }
     .service-card h4 {
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       margin-bottom: 0.5rem;
-      color: #1a1a1a;
+      color: #1e293b;
     }
     .service-card p {
-      font-size: 0.95rem;
-      color: #666;
+      font-size: 1rem;
+      color: #64748b;
     }
     /* How It Works Section */
     .steps {
@@ -220,63 +336,85 @@
     }
     .step {
       flex: 1;
-      min-width: 200px;
+      min-width: 220px;
       text-align: center;
-      padding: 1rem;
-      background: #f9f9f9;
-      border-radius: 12px;
+      padding: 1.5rem;
+      background: #f8fafc;
+      border-radius: 16px;
+      transition: all 0.3s ease;
+    }
+    .step:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     }
     .step h4 {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       margin: 0.5rem 0;
-      color: #1a1a1a;
+      color: #1e293b;
     }
     .step p {
-      color: #666;
+      color: #64748b;
     }
     /* Forms */
     .form-card {
-      background: #f9f9f9;
-      border-radius: 12px;
-      padding: 2rem;
+      background: #f8fafc;
+      border-radius: 16px;
+      padding: 2.5rem;
       margin-bottom: 2rem;
     }
     .form-card h4 {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       margin-bottom: 1.5rem;
-      color: #1a1a1a;
+      color: #1e293b;
     }
     .form-card input, .form-card select {
       width: 100%;
-      padding: 0.8rem;
+      padding: 1rem;
       margin-bottom: 1rem;
-      border: 1px solid #ddd;
-      border-radius: 8px;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
       font-size: 1rem;
-      transition: border-color 0.3s ease;
+      transition: all 0.3s ease;
+      background: white;
     }
     .form-card input:focus, .form-card select:focus {
       outline: none;
-      border-color: #b91c1c;
-      box-shadow: 0 0 5px rgba(185, 28, 28, 0.3);
+      border-color: #ef4444;
+      box-shadow: 0 0 8px rgba(239, 68, 68, 0.3);
     }
     .form-card button {
-      background: #b91c1c;
+      background: #ef4444;
       color: white;
       border: none;
-      padding: 1rem 2.5rem;
+      padding: 1.2rem 3rem;
       width: 100%;
-      border-radius: 50px;
-      font-size: 1.1rem;
+      border-radius: 12px;
+      font-size: 1.2rem;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 5px 15px rgba(185, 28, 28, 0.2);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      z-index: 1;
+    }
+    .form-card button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: 0.5s;
+      z-index: -1;
+    }
+    .form-card button:hover::before {
+      left: 100%;
     }
     .form-card button:hover {
-      background: #a11717;
-      transform: translateY(-3px);
-      box-shadow: 0 8px 20px rgba(185, 28, 28, 0.4);
+      background: #b91c1c;
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(239, 34, 34, 0.4);
     }
     /* Verification Options */
     .verification-options {
@@ -285,74 +423,139 @@
       text-align: center;
     }
     .verification-options p {
-      font-size: 1.1rem;
-      margin-bottom: 1rem;
-      color: #1a1a1a;
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: #1e293b;
     }
     .benefits {
       margin-top: 1.5rem;
-      padding: 1rem;
-      background: #f1f1f1;
-      border-radius: 8px;
+      padding: 1.5rem;
+      background: #f1f5f9;
+      border-radius: 10px;
     }
     .benefits h5 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-      color: #b91c1c;
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: #ef4444;
     }
     .benefits ul {
-      list-style: disc;
-      padding-left: 1.5rem;
-      color: #666;
+      list-style: none;
+      padding-left: 0;
+      color: #64748b;
     }
-    /* Testimonials Section */
-    .testimonial {
-      background: #f9f9f9;
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin: 1rem auto;
-      max-width: 800px;
+    .benefits ul li::before {
+      content: '✅';
+      margin-right: 0.5rem;
     }
-    .testimonial p {
-      font-size: 1.1rem;
-      color: #666;
-      font-style: italic;
+    /* Mobile App Section */
+    .mobile-app {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      background: linear-gradient(90deg, #ef4444 0%, #b91c1c 100%);
+      color: white;
+      padding: 5rem 3rem;
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .mobile-app::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      z-index: 0;
+    }
+    .mobile-app-content {
+      max-width: 50%;
+      z-index: 1;
+    }
+    .mobile-app-content h3 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    .mobile-app-content p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .app-store-buttons {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .app-store-buttons img {
+      width: 160px;
+      transition: transform 0.3s ease;
+    }
+    .app-store-buttons img:hover {
+      transform: scale(1.1);
+    }
+    .mobile-app-mockup {
+      max-width: 40%;
+      z-index: 1;
+    }
+    .mobile-app-mockup img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+      transform: rotate(5deg);
+      transition: transform 0.3s ease;
+    }
+    .mobile-app-mockup img:hover {
+      transform: rotate(0deg);
+    }
+    @media (max-width: 768px) {
+      .mobile-app {
+        flex-direction: column;
+        text-align: center;
+        padding: 3rem 1.5rem;
+      }
+      .mobile-app-content {
+        max-width: 100%;
+      }
+      .mobile-app-mockup {
+        max-width: 70%;
+      }
     }
     /* About Section */
     .about {
       text-align: center;
     }
     .about p {
-      max-width: 800px;
+      max-width: 900px;
       margin: auto;
-      font-size: 1.1rem;
-      color: #666;
+      font-size: 1.2rem;
+      color: #64748b;
     }
     /* Footer */
     footer {
-      background: #1a1a1a;
-      color: #ccc;
+      background: #1e293b;
+      color: #cbd5e1;
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 3rem 1.5rem;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.5rem;
     }
     footer a {
-      color: #ffd700;
+      color: #facc15;
       text-decoration: none;
       font-weight: 500;
-      margin: 0 0.5rem;
+      margin: 0 0.8rem;
       transition: color 0.3s ease;
     }
     footer a:hover {
-      color: #fff;
+      color: white;
     }
     .footer-links {
-      margin: 1rem 0;
+      margin: 1.5rem 0;
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 2rem;
     }
     .footer-links i {
       margin-right: 0.5rem;
@@ -360,54 +563,54 @@
     /* WhatsApp Button */
     .whatsapp-btn {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #25D366;
+      bottom: 30px;
+      right: 30px;
+      background: #25D366;
       color: white;
-      font-size: 2rem;
-      padding: 1rem;
+      font-size: 2.5rem;
+      padding: 1.2rem;
       border-radius: 50%;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       z-index: 1000;
       transition: all 0.3s ease;
     }
     .whatsapp-btn:hover {
-      transform: scale(1.1);
-      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+      transform: scale(1.15);
+      box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
     }
     /* Responsive Design */
     @media (max-width: 768px) {
       header {
         flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
+        gap: 1.5rem;
+        padding: 1.2rem;
       }
       nav a {
         margin-left: 1rem;
-        font-size: 0.9rem;
+        font-size: 0.95rem;
       }
       .hero-content h2 {
-        font-size: 2rem;
+        font-size: 2.5rem;
       }
       .hero-content p {
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
       .btn-primary, .btn-secondary, .btn-verify, .btn-skip, .form-card button {
-        padding: 0.8rem 2rem;
+        padding: 1rem 2rem;
         font-size: 1rem;
       }
       .section {
-        padding: 2rem 1rem;
+        padding: 3rem 1.5rem;
       }
       .section h3 {
-        font-size: 1.5rem;
+        font-size: 2rem;
       }
       .form-card {
-        padding: 1.5rem;
+        padding: 2rem;
       }
       .whatsapp-btn {
-        font-size: 1.5rem;
-        padding: 0.8rem;
+        font-size: 2rem;
+        padding: 1rem;
       }
     }
   </style>
@@ -430,7 +633,7 @@
   <section class="hero">
     <div class="hero-content">
       <h2>DriverSathi - Hire Verified Drivers Instantly</h2>
-      <p>Get drivers for personal rides, delivery, or outstation</p>
+      <p>Your trusted platform for personal, delivery, or outstation drivers</p>
       <a href="#contact" class="btn-primary">Hire a Driver</a>
       <a href="#driver-signup" class="btn-secondary">Become a Driver</a>
     </div>
@@ -438,15 +641,17 @@
 
   <!-- CTA Section -->
   <section class="cta-section">
-    <a href="#contact" class="btn-primary">Book a Driver</a>
-    <a href="#contact" class="btn-secondary">Post a Job</a>
-    <a href="#driver-signup" class="btn-secondary">Register as Driver</a>
+    <div class="cta-buttons">
+      <a href="#contact" class="btn-primary">Book a Driver</a>
+      <a href="#contact" class="btn-secondary">Post a Job</a>
+      <a href="#driver-signup" class="btn-secondary">Register as Driver</a>
+    </div>
   </section>
 
   <!-- About Section -->
   <section class="section about" id="about">
     <h3>About DriverSathi</h3>
-    <p>At DriverSathi, our mission is to provide reliable, verified drivers for all your needs. We ensure a rigorous driver verification process to guarantee safety and professionalism. Choose DriverSathi for seamless, efficient, and trustworthy driver services across India.</p>
+    <p>DriverSathi connects you with reliable, verified drivers across India. Our rigorous verification process ensures safety and professionalism, making your rides seamless and stress-free.</p>
   </section>
 
   <!-- Services Section -->
@@ -456,17 +661,17 @@
       <div class="service-card">
         <i class="fas fa-car"></i>
         <h4>Outstation Driver</h4>
-        <p>Hire drivers for outstation round-trips</p>
+        <p>Reliable drivers for your outstation round-trips</p>
       </div>
       <div class="service-card">
         <i class="fas fa-clock"></i>
         <h4>Daily/Hourly Driver</h4>
-        <p>Book drivers by hour/day for personal car</p>
+        <p>Flexible drivers for your personal car needs</p>
       </div>
       <div class="service-card">
         <i class="fas fa-truck"></i>
         <h4>Delivery Driver</h4>
-        <p>Hire drivers for logistics and deliveries</p>
+        <p>Efficient drivers for logistics and deliveries</p>
       </div>
     </div>
   </section>
@@ -477,15 +682,15 @@
     <div class="steps">
       <div class="step">
         <h4>Step 1: Choose Service</h4>
-        <p>Select the type of driver service you need.</p>
+        <p>Pick the driver service that suits your needs.</p>
       </div>
       <div class="step">
-        <h4>Step 2: Enter Location & Time</h4>
-        <p>Specify your location and preferred time.</p>
+        <h4>Step 2: Set Location & Time</h4>
+        <p>Enter your location and preferred schedule.</p>
       </div>
       <div class="step">
-        <h4>Step 3: Driver Reaches on Time</h4>
-        <p>Your driver arrives promptly at your location.</p>
+        <h4>Step 3: Driver Arrives</h4>
+        <p>Your verified driver reaches you on time.</p>
       </div>
     </div>
   </section>
@@ -524,16 +729,16 @@
         <button type="submit">Submit Details</button>
       </form>
       <div class="verification-options" id="verification-options">
-        <p>Do you want to get verified for ₹199 and gain more visibility?</p>
+        <p>Boost your profile with verification for just ₹199!</p>
         <button class="btn-verify" onclick="alert('Redirecting to payment gateway for ₹199...')">Pay ₹199 & Get Verified</button>
         <button class="btn-skip" onclick="alert('Registered successfully without verification!')">Skip</button>
         <div class="benefits">
-          <h5>Benefits of Getting Verified:</h5>
+          <h5>Why Get Verified?</h5>
           <ul>
-            <li>Get a verified tick ✅ next to your profile</li>
-            <li>Higher visibility to customers</li>
+            <li>Get a verified tick next to your profile</li>
+            <li>Increased visibility to customers</li>
             <li>Priority job assignments</li>
-            <li>Build trust with clients</li>
+            <li>Enhanced client trust</li>
           </ul>
         </div>
       </div>
@@ -546,31 +751,30 @@
     <div class="services-grid">
       <div class="service-card">
         <h4>Free Plan</h4>
-        <p>Basic visibility</p>
+        <p>Basic profile visibility</p>
         <p>No verification badge</p>
       </div>
       <div class="service-card">
         <h4>Verified Plan ₹199/mo</h4>
         <p>Verified badge</p>
-        <p>Priority listings</p>
-        <p>Corporate bookings</p>
+        <p>Priority job listings</p>
+        <p>Access to corporate bookings</p>
       </div>
     </div>
   </section>
 
   <!-- Mobile App Section -->
-  <section class="section" id="mobile-app">
-    <h3>Coming Soon on Mobile</h3>
-    <p>We’re launching Android & iOS apps for fast driver hiring!</p>
-    <img src="playstore-placeholder.png" width="150" alt="Play Store" />
-    <img src="appstore-placeholder.png" width="150" alt="App Store" />
-  </section>
-
-  <!-- Testimonials Section -->
-  <section class="section" id="testimonials">
-    <h3>What Our Users Say</h3>
-    <div class="testimonial">
-      <p>"DriverSathi se mujhe 3 hour me driver mil gaya - thank you!"</p>
+  <section class="section mobile-app" id="mobile-app">
+    <div class="mobile-app-content">
+      <h3>DriverSathi Mobile App</h3>
+      <p>Hire drivers anytime, anywhere with our upcoming Android & iOS apps. Stay tuned!</p>
+      <div class="app-store-buttons">
+        <a href="#"><img src="playstore-placeholder.png" alt="Play Store" /></a>
+        <a href="#"><img src="appstore-placeholder.png" alt="App Store" /></a>
+      </div>
+    </div>
+    <div class="mobile-app-mockup">
+      <img src="mobile-mockup-placeholder.png" alt="Mobile App Mockup" />
     </div>
   </section>
 
