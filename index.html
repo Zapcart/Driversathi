@@ -451,14 +451,15 @@
     .mobile-app {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
       gap: 3rem;
-      background: linear-gradient(90deg, #ef4444 0%, #b91c1c 100%);
-      color: white;
+      background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+      color: #1e293b;
       padding: 5rem 3rem;
       border-radius: 20px;
       position: relative;
       overflow: hidden;
+      text-align: center;
     }
     .mobile-app::before {
       content: '';
@@ -467,46 +468,36 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
       z-index: 0;
     }
     .mobile-app-content {
-      max-width: 50%;
+      max-width: 700px;
       z-index: 1;
     }
     .mobile-app-content h3 {
       font-size: 2.5rem;
       margin-bottom: 1.5rem;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      color: #1e293b;
     }
     .mobile-app-content p {
       font-size: 1.2rem;
       margin-bottom: 2rem;
+      color: #475569;
     }
-    .app-store-buttons {
+    .app-icons {
       display: flex;
-      gap: 1.5rem;
+      justify-content: center;
+      gap: 2rem;
     }
-    .app-store-buttons img {
-      width: 160px;
-      transition: transform 0.3s ease;
+    .app-icons i {
+      font-size: 3rem;
+      color: #1e293b;
+      transition: transform 0.3s ease, color 0.3s ease;
     }
-    .app-store-buttons img:hover {
-      transform: scale(1.1);
-    }
-    .mobile-app-mockup {
-      max-width: 40%;
-      z-index: 1;
-    }
-    .mobile-app-mockup img {
-      width: 100%;
-      border-radius: 15px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-      transform: rotate(5deg);
-      transition: transform 0.3s ease;
-    }
-    .mobile-app-mockup img:hover {
-      transform: rotate(0deg);
+    .app-icons i:hover {
+      transform: scale(1.2);
+      color: #ef4444;
     }
     @media (max-width: 768px) {
       .mobile-app {
@@ -516,9 +507,6 @@
       }
       .mobile-app-content {
         max-width: 100%;
-      }
-      .mobile-app-mockup {
-        max-width: 70%;
       }
     }
     /* About Section */
@@ -697,7 +685,7 @@
 
   <!-- Contact Form Section -->
   <section class="section" id="contact">
-    <h3>Contact Us</h3>
+    <h3>Request a Driver</h3>
     <div class="form-card">
       <h4>Request a Driver</h4>
       <form action="https://formspree.io/f/your-form-id" method="POST">
@@ -768,13 +756,10 @@
     <div class="mobile-app-content">
       <h3>DriverSathi Mobile App</h3>
       <p>Hire drivers anytime, anywhere with our upcoming Android & iOS apps. Stay tuned!</p>
-      <div class="app-store-buttons">
-        <a href="#"><img src="playstore-placeholder.png" alt="Play Store" /></a>
-        <a href="#"><img src="appstore-placeholder.png" alt="App Store" /></a>
+      <div class="app-icons">
+        <i class="fab fa-android"></i>
+        <i class="fab fa-apple"></i>
       </div>
-    </div>
-    <div class="mobile-app-mockup">
-      <img src="mobile-mockup-placeholder.png" alt="Mobile App Mockup" />
     </div>
   </section>
 
